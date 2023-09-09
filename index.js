@@ -25,7 +25,7 @@ app.get('/',(req,res)=>{
   app.use("/answer", answerRoutes);
   
   
-  const PORT= 5000
+  const PORT= process.env.PORT;
   
   const DATABASE_URL=process.env.CONNECTION_URL
   mongoose.connect(DATABASE_URL,{useNewUrlParser:true,useUnifiedTopology:true})
