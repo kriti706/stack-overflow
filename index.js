@@ -25,10 +25,12 @@ app.get('/',(req,res)=>{
   app.use("/answer", answerRoutes);
   
   
-  const PORT= process.env.PORT;
+  //const PORT= process.env.PORT;
+  const PORT= 5000;
   
-  const DATABASE_URL=process.env.CONNECTION_URL
-  mongoose.connect(DATABASE_URL,{useNewUrlParser:true,useUnifiedTopology:true})
+ // const DATABASE_URL=process.env.CONNECTION_URL
+  const CONNECTION_URL = "mongodb+srv://kritigarg2002:kriti706@stack-overflow-clone.xcd6jti.mongodb.net/?retryWrites=true&w=majority"
+  mongoose.connect(CONNECTION_URL,{useNewUrlParser:true,useUnifiedTopology:true})
   .then(() => app.listen(PORT,()=>{console.log(`server running on ${ PORT}`)}))
   .catch((err)=> console.log(err.message))
 
